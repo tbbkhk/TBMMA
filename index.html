@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+
+<html lang="en" class="no-js">
+
+	<head>
+
+		<meta charset="UTF-8" />
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+		<title>3D Shading with Box-Shadows</title>
+
+		<meta name="description" content="A shading effect for 3D transformed elements" />
+
+		<meta name="keywords" content="css3, transforms, shadow, shading, 3d, box shadow" />
+
+		<meta name="author" content="Codrops" />
+
+		<link rel="shortcut icon" href="../favicon.ico">
+
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+
+		<script src="js/modernizr.custom.js"></script>
+
+	</head>
+	<style type="text/css">
+
+	
+		
+		canvas {
+			z-index : -1;
+            position : absolute;
+            overflow: hidden;
+      }
+
+	</style>
+
+	<body>
+
+		<canvas id="c">
+			
+		</canvas>
+		<script>
+			var c=document.getElementById("c");
+			var	ctx=c.getContext("2d");
+				c.width=window.innerWidth-100;
+				c.height=window.innerHeight*4.5;
+//				ctx.fillRect(0,0,100,100);
+//				
+			var string1 = "ཀཁགངཅཆཇཉཏཐདནཔཕབམཙཚཛཝཤསའཡརལཤསཧཨ";
+				string1.split("");
+			var fontsize=30;
+				columns=c.width/fontsize;
+			var drop = [];
+			for(var x=0;x<columns;x++)
+			{
+				drop[x]=0;
+			}
+		function drap(){
+			ctx.fillStyle="rgba(0,0,0,0.07)";
+			ctx.fillRect(0,0,c.width,c.height);
+			ctx.fillStyle="#0F0";
+			ctx.font=fontsize+"px arial";
+			for(var i=0;i<drop.length;i++){
+				var text1=string1[Math.floor(Math.random()*string1.length)];
+				ctx.fillText(text1,i*fontsize,drop[i]*fontsize);
+				drop[i]++;
+				if(drop[i]*fontsize>c.height&&Math.random()>0.9){//90%的几率掉落
+					drop[i]=0;
+				}
+			}
+
+			document.getElementById("music").play();
+            
+
+		}
+		setInterval(drap,20);
+		</script>
+
+
+		<div class="container">
+
+			<audio id="music" autoplay="autoplay" loop="loop" preload="auto"
+            src="./music/1.mp3">
+            	
+            </audio>
+
+
+
+			<!-- Top Navigation -->
+
+			<header>
+
+			  <h1 >བོད་ཀྱི་དྲག་རྩལ་པ་ཁག་ངོ་སྤྲོད་མདོར་བསྡུས།
+			  	<span>བོད་བཙན་པོའི་གདུང་རྒྱུད་ ཤ་རུས་གཅིག་ལ་འདྲེས་པའི་མདོ་དབུས་ཁམས་གསུམ་</span>
+			  </h1>  
+
+			</header>
+
+			<div class="wrapper">
+
+				<ul class="stage clearfix">
+
+
+
+					<li class="scene">
+
+						<div class="movie" onclick="return true">
+
+							<div class="poster"></div>
+
+							<div class="info">
+
+								<header>
+
+									<h1>བསོད་ནམས་དར་རྒྱས་</h1>
+
+									<span class="year">1996.01.20</span>
+
+									<span class="rating">R</span>
+
+									<span class="duration">16-6-0</span>
+
+								</header>
+
+								<p>
+									<span style="color: yellow;">ཕ་ཡུལ་</span>
+									
+									<span class="">ཨ་མདོ་རྔ་བ་ཁྲོ་ཆུ་རྫོང་</span>
+								<br>
+								<span style="color: yellow;">གཟུགས་ཚད་</span>
+									
+									<span class="">173</span>
+								<br>
+								<span style="color: yellow;">ལྗིད་ཚད་</span>
+									
+									<span class="">&emsp;57</span>
+								<br>
+								<span style="color: yellow;">སློབ་གྲྭ་</span>
+									
+									<span class="">མགོན་པོའི་དྲག་རྩལ་ཁང་</span>
+								<br>
+								<span style="color: yellow;">འགྲན་རྭ་</span>
+									
+									<span class="">&emsp;UFC</span>
+								
+								</p>
+
+							</div>
+
+						</div>
+
+					</li>
+
+
+
+					<li class="scene">
+
+						<div class="movie" onclick="return true">
+
+							<div class="poster"></div>
+
+							<div class="info">
+
+								<header>
+
+									<h1>གཡུ་སྒྲ་</h1>
+
+									<span class="year">1997-01-08</span>
+
+									<span class="rating">R</span>
+
+									<span class="duration"> 25-4-0</span>
+
+								</header>
+
+								<p>
+									<span style="color: yellow;">ཕ་ཡུལ་</span>
+									
+									<span class="">ཨ་མདོ་རྔ་བ་ཁྱུང་མཆུ་རྫོང་</span>
+								<br>
+								<span style="color: yellow;">གཟུགས་ཚད་</span>
+									
+									<span class="">171</span>
+								<br>
+								<span style="color: yellow;">ལྗིད་ཚད་</span>
+									
+									<span class="">&emsp;66</span>
+								<br>
+								<span style="color: yellow;">སློབ་གྲྭ་</span>
+									
+									<span class="">མགོན་པོའི་དྲག་རྩལ་ཁང་</span>
+								<br>
+								<span style="color: yellow;">འགྲན་རྭ་</span>
+									
+									<span class="">&emsp;UFC</span>
+								
+								</p>
+
+							</div>
+
+						</div>
+
+					</li>
+
+
+
+					<li class="scene">
+
+						<div class="movie" onclick="return true">
+
+							<div class="poster"></div>
+
+							<div class="info">
+
+								<header>
+
+									<h1>གཡུང་དྲུང་</h1>
+
+									<span class="year">2000.03.07</span>
+
+									<span class="rating">R</span>
+
+									<span class="duration">25-5-0</span>
+
+								</header>
+
+								<p>
+									<span style="color: yellow;">ཕ་ཡུལ་</span>
+									
+									<span class="">ཨ་མདོ་རྔ་བ་ཁྲོ་ཆུ་རྫོང་</span>
+								<br>
+								<span style="color: yellow;">གཟུགས་ཚད་</span>
+									
+									<span class="">175</span>
+								<br>
+								<span style="color: yellow;">ལྗིད་ཚད་</span>
+									
+									<span class="">&emsp;70</span>
+								<br>
+								<span style="color: yellow;">སློབ་གྲྭ་</span>
+									
+									<span class="">མགོན་པོའི་དྲག་རྩལ་ཁང་</span>
+								<br>
+								<span style="color: yellow;">འགྲན་རྭ་</span>
+									
+									<span class="">&emsp;UFC</span>
+								
+								</p>
+
+							</div>
+
+						</div>
+
+					</li>
+
+                    <li class="scene">
+
+						<div class="movie" onclick="return true">
+
+							<div class="poster"></div>
+
+							<div class="info">
+
+								<header>
+
+									<h1>བསྟན་འཛིན་པད་མ་</h1>
+
+									<span class="year">1994.12.25</span>
+
+									<span class="rating">R</span>
+
+									<span class="duration">2-3-0</span>
+
+								</header>
+
+								<p>
+									<span style="color: yellow;">ཕ་ཡུལ་</span>
+									
+									<span class="">&emsp;&emsp;བོད་</span>
+								<br>
+								<span style="color: yellow;">གཟུགས་ཚད་</span>
+									
+									<span class="">158</span>
+								<br>
+								<span style="color: yellow;">ལྗིད་ཚད་</span>
+									
+									<span class="">&emsp;48</span>
+								<br>
+								<span style="color: yellow;">སློབ་གྲྭ་</span>
+									
+									<span class="">&emsp;རྒྱ་གར་</span>
+								<br>
+								<span style="color: yellow;">འགྲན་རྭ་</span>
+									
+									<span class="">&emsp;MFN</span>
+								
+								</p>
+							</div>
+
+						</div>
+
+					</li>
+                    <li class="scene">
+
+						<div class="movie" onclick="return true">
+
+							<div class="poster"></div>
+
+							<div class="info">
+
+								<header>
+
+									<h1>བསོད་ནམས་པད་མ་</h1>
+
+									<span class="year">1998.10.12</span>
+
+									<span class="rating">R</span>
+
+									<span class="duration">5-1-0</span>
+
+								</header>
+
+								<p>
+									<span style="color: yellow;">ཕ་ཡུལ་</span>
+									
+									<span class="">&emsp;&emsp;བོད་</span>
+								<br>
+								<span style="color: yellow;">གཟུགས་ཚད་</span>
+									
+									<span class="">158</span>
+								<br>
+								<span style="color: yellow;">ལྗིད་ཚད་</span>
+									
+									<span class="">&emsp;52</span>
+								<br>
+								<span style="color: yellow;">སློབ་གྲྭ་</span>
+									
+									<span class="">&emsp;Bidang MMA</span>
+								<br>
+								<span style="color: yellow;">འགྲན་རྭ་</span>
+									
+									<span class="">&emsp;MFN</span>
+								
+								</p>
+
+							</div>
+
+						</div>
+
+					</li>
+                    
+                    <li class="scene">
+
+						<div class="movie" onclick="return true">
+
+							<div class="poster"></div>
+
+							<div class="info">
+
+								<header>
+
+									<h1>ཆོས་ལྷུན་</h1>
+
+									<span class="year">1997.07.08</span>
+
+									<span class="rating">R</span>
+
+									<span class="duration">19-10-0</span>
+
+								</header>
+
+								<p>
+									<span style="color: yellow;">ཕ་ཡུལ་</span>
+									
+									<span class="">ཨ་མདོ་རྔ་བ་ཁྱུང་མཆུ་རྫོང་</span>
+								<br>
+								<span style="color: yellow;">གཟུགས་ཚད་</span>
+									
+									<span class="">173</span>
+								<br>
+								<span style="color: yellow;">ལྗིད་ཚད་</span>
+									
+									<span class="">&emsp;57</span>
+								<br>
+								<span style="color: yellow;">སློབ་གྲྭ་</span>
+									
+									<span class="">མགོན་པོའི་དྲག་རྩལ་ཁང་</span>
+								<br>
+								<span style="color: yellow;">འགྲན་རྭ་</span>
+									
+									<span class="">JCK</span>
+								
+								</p>
+
+							</div>
+
+						</div>
+
+					</li>
+					<li class="scene">
+
+						<div class="movie" onclick="return true">
+
+							<div class="poster"></div>
+
+							<div class="info">
+
+								<header>
+
+									<h1>པད་མ་རྡོ་རྗེ་</h1>
+
+									<span class="year">1999.07.15</span>
+
+									<span class="rating">R</span>
+
+									<span class="duration">15-2-0</span>
+
+								</header>
+
+								<p>
+									<span style="color: yellow;">ཕ་ཡུལ་</span>
+									
+									<span class="">ཨ་མདོ་རྔ་བ་ཁྱུང་མཆུ་རྫོང་</span>
+								<br>
+								<span style="color: yellow;">གཟུགས་ཚད་</span>
+									
+									<span class="">175</span>
+								<br>
+								<span style="color: yellow;">ལྗིད་ཚད་</span>
+									
+									<span class="">&emsp;61</span>
+								<br>
+								<span style="color: yellow;">སློབ་གྲྭ་</span>
+									
+									<span class="">མགོན་པོའི་དྲག་རྩལ་ཁང་</span>
+								<br>
+								<span style="color: yellow;">འགྲན་རྭ་</span>
+									
+									<span class="">&emsp;ONE</span>
+								
+								</p>
+
+
+							</div>
+
+						</div>
+
+					</li>
+					<li class="scene">
+
+						<div class="movie" onclick="return true">
+
+							<div class="poster"></div>
+
+							<div class="info">
+
+								<header>
+
+									<h1>རིག་འཛིན་</h1>
+
+									<span class="year">2001</span>
+
+									<span class="rating">R</span>
+
+									<span class="duration">5-0-0</span>
+
+								</header>
+
+									<p>
+									<span style="color: yellow;">ཕ་ཡུལ་</span>
+									
+									<span class="">ཨ་མདོ་རྔ་བ་ཁྱུང་མཆུ་རྫོང་</span>
+								<br>
+								<span style="color: yellow;">གཟུགས་ཚད་</span>
+									
+									<span class="">175</span>
+								<br>
+								<span style="color: yellow;">ལྗིད་ཚད་</span>
+									
+									<span class="">&emsp;66</span>
+								<br>
+								<span style="color: yellow;">སློབ་གྲྭ་</span>
+									
+									<span class="">མགོན་པོའི་དྲག་རྩལ་ཁང་</span>
+								<br>
+								<span style="color: yellow;">འགྲན་རྭ་</span>
+									
+									<span class="">&emsp;WKG</span>
+								
+								</p>
+
+							</div>
+
+						</div>
+
+					</li>
+					<li class="scene">
+
+						<div class="movie" onclick="return true">
+
+							<div class="poster"></div>
+
+							<div class="info">
+
+								<header>
+
+									<h1>ཚེ་དབང་</h1>
+
+									<span class="year">2002</span>
+
+									<span class="rating">R</span>
+
+									<span class="duration">7-3-0</span>
+
+								</header>
+
+									<p>
+									<span style="color: yellow;">ཕ་ཡུལ་</span>
+									
+									<span class="">ཨ་མདོ་རྔ་བ་ཁྱུང་མཆུ་རྫོང་</span>
+								<br>
+								<span style="color: yellow;">གཟུགས་ཚད་</span>
+									
+									<span class="">185</span>
+								<br>
+								<span style="color: yellow;">ལྗིད་ཚད་</span>
+									
+									<span class="">&emsp;66</span>
+								<br>
+								<span style="color: yellow;">སློབ་གྲྭ་</span>
+									
+									<span class="">མགོན་པོའི་དྲག་རྩལ་ཁང་</span>
+								<br>
+								<span style="color: yellow;">འགྲན་རྭ་</span>
+									
+									<span class="">&emsp;JCK</span>
+								
+								</p>
+							</div>
+
+						</div>
+
+					</li>
+
+
+					<li class="scene">
+
+						<div class="movie" onclick="return true">
+
+							<div class="poster"></div>
+
+							<div class="info">
+
+								<header>
+
+									<h1>རྡོ་རྗེ་</h1>
+
+									<span class="year">2004</span>
+
+									<span class="rating">R</span>
+
+									<span class="duration">5-0-0</span>
+
+								</header>
+
+									<p>
+									<span style="color: yellow;">ཕ་ཡུལ་</span>
+									
+									<span class="">ཨ་མདོ་རྔ་བ་ཁྱུང་མཆུ་རྫོང་</span>
+								<br>
+								<span style="color: yellow;">གཟུགས་ཚད་</span>
+									
+									<span class="">176</span>
+								<br>
+								<span style="color: yellow;">ལྗིད་ཚད་</span>
+									
+									<span class="">&emsp;66</span>
+								<br>
+								<span style="color: yellow;">སློབ་གྲྭ་</span>
+									
+									<span class="">མགོན་པོའི་དྲག་རྩལ་ཁང་</span>
+								<br>
+								<span style="color: yellow;">འགྲན་རྭ་</span>
+									
+									<span class="">&emsp;WLF</span>
+								
+								</p>
+
+							</div>
+
+						</div>
+
+					</li>
+					<li class="scene">
+
+						<div class="movie" onclick="return true">
+
+							<div class="poster"></div>
+
+							<div class="info">
+
+								<header>
+
+									<h1>ཡི་ཤེས་</h1>
+
+									<span class="year">2005</span>
+
+									<span class="rating">R</span>
+
+									<span class="duration">6-0-0</span>
+
+								</header>
+
+							    <p>
+									<span style="color: yellow;">ཕ་ཡུལ་</span>
+									
+									<span class="">ཨ་མདོ་རྔ་བ་</span>
+								<br>
+								<span style="color: yellow;">གཟུགས་ཚད་</span>
+									
+									<span class="">168</span>
+								<br>
+								<span style="color: yellow;">ལྗིད་ཚད་</span>
+									
+									<span class="">&emsp;57</span>
+								<br>
+								<span style="color: yellow;">སློབ་གྲྭ་</span>
+									
+									<span class="">མགོན་པོའི་དྲག་རྩལ་ཁང་</span>
+								<br>
+								<span style="color: yellow;">འགྲན་རྭ་</span>
+									
+									<span class="">&emsp;JCK</span>
+								
+								</p>
+
+							</div>
+
+						</div>
+
+					</li>
+					<li class="scene">
+
+						<div class="movie" onclick="return true">
+
+							<div class="poster"></div>
+
+							<div class="info">
+
+								<header>
+
+									<h1>བསོད་ནམས་བཟང་པོ་</h1>
+
+									<span class="year">2005</span>
+
+									<span class="rating">R</span>
+
+									<span class="duration">5-2-0</span>
+
+								</header>
+
+								<p>
+									<span style="color: yellow;">ཕ་ཡུལ་</span>
+									
+									<span class="">ཨ་མདོ་རྔ་བ་ཁྲོ་ཆུ་རྫོང་</span>
+								<br>
+								<span style="color: yellow;">གཟུགས་ཚད་</span>
+									
+									<span class="">173</span>
+								<br>
+								<span style="color: yellow;">ལྗིད་ཚད་</span>
+									
+									<span class="">&emsp;61</span>
+								<br>
+								<span style="color: yellow;">སློབ་གྲྭ་</span>
+									
+									<span class="">མགོན་པོའི་དྲག་རྩལ་ཁང་</span>
+								<br>
+								<span style="color: yellow;">འགྲན་རྭ་</span>
+									
+									<span class="">&emsp;WLF</span>
+								
+								</p>
+							</div>
+
+						</div>
+
+					</li>
+					<li class="scene">
+
+						<div class="movie" onclick="return true">
+
+							<div class="poster"></div>
+
+							<div class="info">
+
+								<header>
+
+									<h1>ཕུན་ཚོགས་</h1>
+
+									<span class="year">2001</span>
+
+									<span class="rating">R</span>
+
+									<span class="duration">9-1-0</span>
+
+								</header>
+
+								<p>
+									<span style="color: yellow;">ཕ་ཡུལ་</span>
+									
+									<span class="">ཨ་མདོ་རྔ་བ་ཁྲོ་ཆུ་རྫོང་</span>
+								<br>
+								<span style="color: yellow;">གཟུགས་ཚད་</span>
+									
+									<span class="">177</span>
+								<br>
+								<span style="color: yellow;">ལྗིད་ཚད་</span>
+									
+									<span class="">&emsp;61</span>
+								<br>
+								<span style="color: yellow;">སློབ་གྲྭ་</span>
+									
+									<span class="">མགོན་པོའི་དྲག་རྩལ་ཁང་</span>
+								<br>
+								<span style="color: yellow;">འགྲན་རྭ་</span>
+									
+									<span class="">&emsp;WLF</span>
+								
+								</p>
+
+							</div>
+
+						</div>
+
+					</li>
+					
+					<li class="scene">
+
+						<div class="movie" onclick="return true">
+
+							<div class="poster"></div>
+
+							<div class="info">
+
+								<header>
+
+									<h1>ཉི་བརྟེན་</h1>
+
+									<span class="year">1998.01.01</span>
+
+									<span class="rating">R</span>
+
+									<span class="duration">22-6-0</span>
+
+								</header>
+
+								<p>
+									<span style="color: yellow;">ཕ་ཡུལ་</span>
+									
+									<span class="">ཨ་མདོ་རྔ་བ་ཁྱུང་མཆུ་རྫོང་</span>
+								<br>
+								<span style="color: yellow;">གཟུགས་ཚད་</span>
+									
+									<span class="">166</span>
+								<br>
+								<span style="color: yellow;">ལྗིད་ཚད་</span>
+									
+									<span class="">&emsp;57</span>
+								<br>
+								<span style="color: yellow;">སློབ་གྲྭ་</span>
+									
+									<span class="">མགོན་པོའི་དྲག་རྩལ་ཁང་</span>
+								<br>
+								<span style="color: yellow;">འགྲན་རྭ་</span>
+									
+									<span class="">&emsp;JCK</span>
+								
+								</p>
+
+							</div>
+
+						</div>
+
+					</li>
+					<li class="scene">
+
+						<div class="movie" onclick="return true">
+
+							<div class="poster"></div>
+
+							<div class="info">
+
+								<header>
+
+									<h1>བསོད་ནམས་བཀྲིས་</h1>
+
+									<span class="year">1998.07.01</span>
+
+									<span class="rating">R</span>
+
+									<span class="duration">19-8-1</span>
+
+								</header>
+
+								<p>
+									<span style="color: yellow;">ཕ་ཡུལ་</span>
+									
+									<span class="">ཨ་མདོ་རྔ་བ་</span>
+								<br>
+								<span style="color: yellow;">གཟུགས་ཚད་</span>
+									
+									<span class="">168</span>
+								<br>
+								<span style="color: yellow;">ལྗིད་ཚད་</span>
+									
+									<span class="">&emsp;57</span>
+								<br>
+								<span style="color: yellow;">སློབ་གྲྭ་</span>
+									
+									<span class="">མགོན་པོའི་དྲག་རྩལ་ཁང་</span>
+								<br>
+								<span style="color: yellow;">འགྲན་རྭ་</span>
+									
+									<span class="">&emsp;ONE</span>
+								
+								</p>
+							</div>
+
+						</div>
+
+					</li>
+					<li class="scene">
+
+						<div class="movie" onclick="return true">
+
+							<div class="poster"></div>
+
+							<div class="info">
+
+								<header>
+
+									<h1>བློ་གྲོས་རྒྱ་མཚོ་</h1>
+
+									<span class="year">1999.08.26</span>
+
+									<span class="rating">R</span>
+
+									<span class="duration">10-7-0</span>
+
+								</header>
+
+								<p>
+									<span style="color: yellow;">ཕ་ཡུལ་</span>
+									
+									<span class="">ཨ་མདོ་རྔ་བ་ཁྱུང་མཆུ་རྫོང་</span>
+								<br>
+								<span style="color: yellow;">གཟུགས་ཚད་</span>
+									
+									<span class="">185</span>
+								<br>
+								<span style="color: yellow;">ལྗིད་ཚད་</span>
+									
+									<span class="">&emsp;66</span>
+								<br>
+								<span style="color: yellow;">སློབ་གྲྭ་</span>
+									
+									<span class="">Longyun MMA</span>
+								<br>
+								<span style="color: yellow;">འགྲན་རྭ་</span>
+									
+									<span class="">&emsp;JCK</span>
+								
+								</p>
+
+							</div>
+
+						</div>
+
+					</li>
+					<li class="scene">
+
+						<div class="movie" onclick="return true">
+
+							<div class="poster"></div>
+
+							<div class="info">
+
+								<header>
+
+									<h1>ཐུབ་བརྟེན་</h1>
+
+									<span class="year">2001</span>
+
+									<span class="rating">R</span>
+
+									<span class="duration">5-6-1 </span>
+
+								</header>
+
+								<p>
+									<span style="color: yellow;">ཕ་ཡུལ་</span>
+									
+									<span class="">ཨ་མདོ་རྔ་བ་</span>
+								<br>
+								<span style="color: yellow;">གཟུགས་ཚད་</span>
+									
+									<span class="">181</span>
+								<br>
+								<span style="color: yellow;">ལྗིད་ཚད་</span>
+									
+									<span class="">&emsp;61</span>
+								<br>
+								<span style="color: yellow;">སློབ་གྲྭ་</span>
+									
+									<span class="">Longyun MMA</span>
+								<br>
+								<span style="color: yellow;">འགྲན་རྭ་</span>
+									
+									<span class="">&emsp;JCK</span>
+								
+								</p>
+
+							</div>
+
+						</div>
+
+					</li>
+					<li class="scene">
+
+						<div class="movie" onclick="return true">
+
+							<div class="poster"></div>
+
+							<div class="info">
+
+								<header>
+
+									<h1>བློ་གྲོས་</h1>
+
+									<span class="year">2003</span>
+
+									<span class="rating">R</span>
+
+									<span class="duration">6-4-0</span>
+
+								</header>
+
+								<p>
+									<span style="color: yellow;">ཕ་ཡུལ་</span>
+									
+									<span class="">ཨ་མདོ་རྔ་བ་ཁྲོ་ཆུ་རྫོང་</span>
+								<br>
+								<span style="color: yellow;">གཟུགས་ཚད་</span>
+									
+									<span class="">178</span>
+								<br>
+								<span style="color: yellow;">ལྗིད་ཚད་</span>
+									
+									<span class="">&emsp;66</span>
+								<br>
+								<span style="color: yellow;">སློབ་གྲྭ་</span>
+									
+									<span class="">མགོན་པོའི་དྲག་རྩལ་ཁང་</span>
+								<br>
+								<span style="color: yellow;">འགྲན་རྭ་</span>
+									
+									<span class="">&emsp;JCK</span>
+								
+								</p>
+
+							</div>
+
+						</div>
+
+					</li>
+
+
+
+				</ul>
+
+			</div><!-- /wrapper -->
+
+		</div><!-- /container -->
+
+        
+
+        
+
+        <!-- <script src="https://www.jq22.com/js/jq.js"></script> -->
+
+        
+
+	</body>
+
+</html>
